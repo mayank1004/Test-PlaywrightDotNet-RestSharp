@@ -1,35 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-
-    <IsPackable>false</IsPackable>
-    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
-  </PropertyGroup>
-  <PropertyGroup>
-   <LangVersion>9.0</LangVersion>
-</PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
-    <PackageReference Include="Microsoft.Playwright.NUnit" Version="1.22.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Microsoft.Playwright" />
-    <None Remove="Microsoft.Playwright.NUnit" />
-    <None Remove="Tests\" />
-    <None Remove="Tests\Fixtures\" />
-    <None Remove="Tests\ConduitTests\" />
-    <None Remove="Tests\ConduitTests\E2ETests\" />
-    <None Remove="POM\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tests\" />
-    <Folder Include="Tests\Fixtures\" />
-    <Folder Include="Tests\ConduitTests\" />
-    <Folder Include="Tests\ConduitTests\E2ETests\" />
-    <Folder Include="POM\" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<IsPackable>false</IsPackable>
+		<DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="NUnit" Version="3.12.0" />
+		<PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+		<PackageReference Include="Microsoft.Playwright.NUnit" Version="1.22.0" />
+		<PackageReference Include="RestSharp" Version="107.3.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Microsoft.Playwright" />
+		<None Remove="Microsoft.Playwright.NUnit" />
+		<None Remove="Tests\" />
+		<None Remove="Tests\Fixtures\" />
+		<None Remove="Tests\ConduitTests\" />
+		<None Remove="Tests\ConduitTests\E2ETests\" />
+		<None Remove="POM\" />
+		<None Remove="RestSharp" />
+		<None Remove="Tests\ConduitTests\APITests\" />
+		<None Remove="Services\" />
+		<None Remove="Services\Auth\" />
+		<None Remove="models\" />
+		<None Remove="Model\Auth\" />
+		<None Remove="Utils\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Tests\" />
+		<Folder Include="Tests\Fixtures\" />
+		<Folder Include="Tests\ConduitTests\" />
+		<Folder Include="Tests\ConduitTests\E2ETests\" />
+		<Folder Include="POM\" />
+		<Folder Include="Tests\ConduitTests\APITests\" />
+		<Folder Include="Services\" />
+		<Folder Include="Services\Auth\" />
+		<Folder Include="Model\" />
+		<Folder Include="Model\Auth\" />
+		<Folder Include="Utils\" />
+	</ItemGroup>
 </Project>
