@@ -15,7 +15,7 @@ namespace E2ETestCSharp.Services
 
         public ConduitClient()
         {
-            _client = new RestClient("https://conduit.productionready.io");
+            _client = new RestClient("https://api.realworld.io");
             _defaultHeaders.Add("Content-Type", "application/json");
             _defaultHeaders.Add("X-Requested-With", "XMLHttpRequest");
             _client.AddDefaultHeaders(_defaultHeaders);
@@ -43,7 +43,6 @@ namespace E2ETestCSharp.Services
         {
             AuthServices auth = new AuthServices(_client);
             string token = await auth.GetUserToken(username, password);
-            Console.WriteLine($"Token is: {token}");
             UserManagement userManagement = await auth.GetCurrentUser(token);
             return userManagement.user;
         }

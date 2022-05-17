@@ -20,35 +20,11 @@ namespace E2ETestCSharp.Tests.ConduitTests.APITests
         }
 
         [TestCase("interview@start.com", "password")]
-        public async Task GetCurrentUser(string username, string password)
+        public async Task GetCurrentUser(string email, string password)
 
         {
-            User user = await client.GetCurrentUser(username, password);
-            Assert.AreEqual(user.username, "interview");
-        }
-
-        [Test]
-        public async Task GetArticles()
-
-        {
-            /*
-            //Creating request to get data from server
-
-            RestRequest restRequest = new RestRequest("api/articles");
-
-            // Executing request to server and checking server response.
-
-            RestResponse restResponse = await RestClient.GetAsync(restRequest);
-
-            // Extracting output data from received response
-
-            string response = restResponse.Content;
-
-            // Verifiying reponse contains text “London”
-
-            Console.WriteLine(response);
-            Assert.AreEqual(HttpStatusCode.OK, restResponse.StatusCode);
-            */
+            User user = await client.GetCurrentUser(email, password);
+            Assert.AreEqual(email, user.email);
         }
 
     }
