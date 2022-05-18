@@ -29,3 +29,5 @@ jobs:
         shell: pwsh
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+        env:
+          TEST_CONDUIT_ENV: CI
