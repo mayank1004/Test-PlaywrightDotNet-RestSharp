@@ -1,2 +1,3 @@
-﻿$PlaywrightFileName = Join-Path $PSScriptRoot "bin/Debug/netcore3.1/playwright.ps1"
+﻿$PlaywrightFileName = Join-Path $PSScriptRoot "bin/Debug"
+Get-ChildItem -Path $PlaywrightFileName -Name
 pwsh $PlaywrightFileName install
