@@ -1,4 +1,4 @@
-﻿name: dotnet package
+﻿name: Conduit App Test Automation
 
 on: [push]
 
