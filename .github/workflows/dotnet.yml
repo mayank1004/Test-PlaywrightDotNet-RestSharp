@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
       - name: Install required browsers
-        run: pwsh bin/Debug/netcoreapp3.1/playwright.ps1 install
+        run: pwsh bin/Debug/netcoreapp${{ matrix.dotnet-version }}/playwright.ps1 install
         shell: pwsh
       - name: Test
         run: dotnet test --no-restore --verbosity normal
