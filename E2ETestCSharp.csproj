@@ -44,5 +44,10 @@
 		<Folder Include="Model\Auth\" />
 		<Folder Include="Utils\" />
 		<Folder Include="Utils\Config\" />
+		<Folder Include=".github\" />
+		<Folder Include=".github\workflows\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include=".github\workflows\dotnet.yml" />
 	</ItemGroup>
 </Project>
