@@ -31,6 +31,7 @@
 		<None Remove="Utils\Config\" />
 		<None Remove="Microsoft.Extensions.Configuration.Json" />
 		<None Remove="PlaywrightSetup\" />
+		<None Remove="Utils\Enums\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Tests\" />
@@ -48,6 +49,7 @@
 		<Folder Include=".github\" />
 		<Folder Include=".github\workflows\" />
 		<Folder Include="PlaywrightSetup\" />
+		<Folder Include="Utils\Enums\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include=".github\workflows\dotnet.yml" />

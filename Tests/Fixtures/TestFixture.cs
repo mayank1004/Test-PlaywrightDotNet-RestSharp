@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using E2ETestCSharp.Services;
+using E2ETestCSharp.Utils;
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 using NUnit.Framework;
@@ -25,11 +26,7 @@ namespace E2ETestCSharp.Tests.Fixtures
         [SetUp]
         public async Task CreateContextAndPage()
         {
-            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
-            {
-                Headless = IsBrowserHeadless,
-                SlowMo = 50,
-            });
+            Browser = await new BrowserManager().LaunchBrowserAsync(Playwright, Utils.Enums.BrowserTypeEnum.FIREFOX, IsBrowserHeadless, 50);
             context = await Browser.NewContextAsync(new BrowserNewContextOptions { StorageState = await GetStateAsync() });
             page = await context.NewPageAsync();
         }
