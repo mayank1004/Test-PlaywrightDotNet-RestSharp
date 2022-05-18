@@ -30,6 +30,7 @@
 		<None Remove="Utils\" />
 		<None Remove="Utils\Config\" />
 		<None Remove="Microsoft.Extensions.Configuration.Json" />
+		<None Remove="PlaywrightSetup\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Tests\" />
@@ -46,6 +47,7 @@
 		<Folder Include="Utils\Config\" />
 		<Folder Include=".github\" />
 		<Folder Include=".github\workflows\" />
+		<Folder Include="PlaywrightSetup\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include=".github\workflows\dotnet.yml" />

@@ -1,1 +1,1 @@
-﻿pwsh playwright.ps1 install
+﻿pwsh PlaywrightSetup\playwright.ps1 install
