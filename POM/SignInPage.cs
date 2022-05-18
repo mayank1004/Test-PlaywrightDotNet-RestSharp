@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.Playwright;
 
 namespace E2ETestCSharp.POM
@@ -10,8 +9,9 @@ namespace E2ETestCSharp.POM
         private readonly ILocator _emailInput;
         private readonly ILocator _passwordInput;
         private readonly ILocator _signinButton;
+        static readonly string pageUrl = "/login";
 
-        public SignInPage(IPage page) : base(page, "/login")
+        public SignInPage(IPage page) : base(page, pageUrl)
         {
             _page = page;
             _emailInput = page.Locator("[placeholder=\"Email\"]");

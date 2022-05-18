@@ -10,44 +10,39 @@ namespace E2ETestCSharp.Services
 {
     public class ConduitClient : IDisposable, IConfig, IUserConfig
     {
-        readonly RestClient _client;
+        private RestClient _client;
 
-        readonly Dictionary<string, string> _defaultHeaders = new Dictionary<string, string>();
+        private AuthServices auth;
 
         public ConduitClient()
         {
+            clientRequestDefaultSetup();
+            auth = new AuthServices(_client);
+        }
+
+        private void clientRequestDefaultSetup()
+        {
             _client = new RestClient(IConfig.API_SERVER);
+            Dictionary<string, string> _defaultHeaders = new Dictionary<string, string>();
             _defaultHeaders.Add("Content-Type", "application/json");
             _defaultHeaders.Add("X-Requested-With", "XMLHttpRequest");
             _client.AddDefaultHeaders(_defaultHeaders);
         }
 
+        public Task<RestResponse> UserSignInPOST(string username, string password) => auth.SignInResponseAsync(username, password);
+        //OR with using Object Model class
+        public Task<RestResponse> UserSignInWithObjectModelPOST(string username, string password) => auth.SignInResponseUsingModelAsync(username, password);
 
-        public Task<RestResponse> UserSignInPOST(string username, string password)
-        {
-            AuthServices auth = new AuthServices(_client);
-            return auth.SignInResponseAsync(username, password);
-        }
+        public Task<string> GetUserAuthToken(string username, string password) => auth.GetUserToken(username, password);
 
-        public Task<String> GetUserAuthToken(string username, string password)
-        {
-            AuthServices auth = new AuthServices(_client);
-            return auth.GetUserToken(username, password);
-        }
-
-        public async Task<String> GetDefaultUserAuthToken()
-        {
-            return await GetUserAuthToken(IUserConfig.EMAIL, IUserConfig.TEST_PASSWORD);
-        }
+        public Task<string> GetDefaultUserAuthToken() => GetUserAuthToken(IUserConfig.EMAIL, IUserConfig.TEST_PASSWORD);
 
         public async Task<User> GetCurrentUser(string username, string password)
         {
-            AuthServices auth = new AuthServices(_client);
             string token = await auth.GetUserToken(username, password);
             UserManagement userManagement = await auth.GetCurrentUser(token);
             return userManagement.user;
         }
-
 
         public void Dispose()
         {

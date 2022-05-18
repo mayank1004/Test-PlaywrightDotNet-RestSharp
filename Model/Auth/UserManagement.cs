@@ -9,5 +9,10 @@ namespace E2ETestCSharp.Model.Auth
         {
         }
         public User user { get; set; }
+
+        public UserManagement(User user)
+        {
+            this.user = user;
+        }
     }
 }

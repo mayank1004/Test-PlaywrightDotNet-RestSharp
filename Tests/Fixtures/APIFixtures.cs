@@ -1,18 +1,23 @@
-﻿using System;
-using NUnit.Framework;
-using RestSharp;
+﻿using NUnit.Framework;
 using E2ETestCSharp.Services;
+using Microsoft.Playwright.NUnit;
 
 namespace E2ETestCSharp.Tests.Fixtures
 {
-    public class APIFixtures
+    public class APIFixtures : PlaywrightTest
     {
-        public ConduitClient client { set; get; }
+        public ConduitClient ConduitClient { set; get; }
 
         [SetUp]
         public void ApiTestSetup()
         {
-            client = new ConduitClient();
+            ConduitClient = new ConduitClient();
+        }
+
+        [TearDown]
+        public void ApiTestTearDown()
+        {
+            ConduitClient.Dispose();
         }
     }
 }

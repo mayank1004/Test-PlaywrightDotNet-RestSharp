@@ -20,16 +20,25 @@ namespace E2ETestCSharp.Services.Auth
             _client = client;
         }
 
-        public async Task<RestResponse> SignInResponseAsync(string username, string password = "password")
+        public async Task<RestResponse> SignInResponseAsync(string email, string password = "password")
         {
             RestRequest restRequest = new RestRequest(loginEndpoint);
-            string jsonBody = $"{{\"user\":{{\"email\":\"{username}\",\"password\":\"{password}\"}}}}";
+            string jsonBody = $"{{\"user\":{{\"email\":\"{email}\",\"password\":\"{password}\"}}}}";
             restRequest.AddStringBody(jsonBody, ContentType.Json);
             RestResponse restResponse = await _client.PostAsync(restRequest);
             return restResponse;
         }
+        //OR - if you would like  to use the models
+        public async Task<RestResponse> SignInResponseUsingModelAsync(string email, string password = "password")
+        {
+            RestRequest restRequest = new RestRequest(loginEndpoint);
+            UserManagement user = new UserManagement(new User(email, password));
+            restRequest.AddBody(user);
+            RestResponse restResponse = await _client.PostAsync(restRequest);
+            return restResponse;
+        }
 
-        public async Task<String> GetUserToken(string username, string password = "password")
+        public async Task<string> GetUserToken(string username, string password = "password")
         {
             RestRequest restRequest = new RestRequest(loginEndpoint);
             string jsonBody = $"{{\"user\":{{\"email\":\"{username}\",\"password\":\"{password}\"}}}}";

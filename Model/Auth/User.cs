@@ -12,5 +12,18 @@ namespace E2ETestCSharp.Model.Auth
         public string bio { get; set; }
         public string image { get; set; }
         public string token { get; set; }
+
+        public User(string username, string email, string password)
+        {
+            this.email = email;
+            this.username = username;
+            this.password = password;
+        }
+
+        public User(string email, string password)
+        {
+            this.email = email;
+            this.password = password;
+        }
     }
 }
