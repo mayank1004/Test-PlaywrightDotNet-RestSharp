@@ -11,6 +11,7 @@
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
 		<PackageReference Include="Microsoft.Playwright.NUnit" Version="1.22.0" />
 		<PackageReference Include="RestSharp" Version="107.3.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="Microsoft.Playwright" />
@@ -27,6 +28,8 @@
 		<None Remove="models\" />
 		<None Remove="Model\Auth\" />
 		<None Remove="Utils\" />
+		<None Remove="Utils\Config\" />
+		<None Remove="Microsoft.Extensions.Configuration.Json" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Tests\" />
@@ -40,5 +43,6 @@
 		<Folder Include="Model\" />
 		<Folder Include="Model\Auth\" />
 		<Folder Include="Utils\" />
+		<Folder Include="Utils\Config\" />
 	</ItemGroup>
 </Project>

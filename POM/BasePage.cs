@@ -1,13 +1,14 @@
-﻿using Microsoft.Playwright;
+﻿using E2ETestCSharp.Utils.Config;
+using Microsoft.Playwright;
 using System.Threading.Tasks;
 
 namespace E2ETestCSharp.POM
 {
-    public class BasePage
+    public class BasePage : IConfig
     {
         private readonly IPage _page;
         private readonly string _url;
-        protected static string baseUrl = "https://superlative-fox-61a6f8.netlify.app";
+        protected static string baseUrl = IConfig.APP_BASE_URL;
         public BasePage(IPage page, string url)
         {
             _page = page;

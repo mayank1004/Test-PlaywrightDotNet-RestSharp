@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using E2ETestCSharp.Model.Auth;
 using E2ETestCSharp.Services.Auth;
 using E2ETestCSharp.Tests.Fixtures;
+using E2ETestCSharp.Utils.Config;
 using NUnit.Framework;
 using RestSharp;
 
 namespace E2ETestCSharp.Tests.ConduitTests.APITests
 {
-    public class AuthServiceTests : APIFixtures
+    public class AuthServiceTests : APIFixtures, IConfig
     {
         [TestCase("interview@start.com", "password")]
         public async Task SignIn(string username, string password)
