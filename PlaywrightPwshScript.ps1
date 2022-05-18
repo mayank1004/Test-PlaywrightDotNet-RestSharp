@@ -1,1 +1,1 @@
-﻿pwsh PlaywrightSetup\playwright.ps1 install
+﻿pwsh bin\Debug\netcoreapp3.1\playwright.ps1 install
