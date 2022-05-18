@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --no-restore
       - name: Install required browsers
         run: ./PlaywrightPwshScript.ps1
         shell: pwsh
