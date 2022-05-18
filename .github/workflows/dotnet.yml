@@ -1,0 +1,33 @@
+﻿name: dotnet package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ['3.1']
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Install required browsers
+        run: pwsh bin/Debug/netcoreapp${{ matrix.dotnet-version }}/playwright.ps1 install
+        shell: pwsh
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
+        env:
+          TEST_CONDUIT_ENV: CI

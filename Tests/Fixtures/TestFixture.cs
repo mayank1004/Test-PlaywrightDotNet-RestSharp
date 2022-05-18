@@ -11,6 +11,8 @@ namespace E2ETestCSharp.Tests.Fixtures
     {
         protected IBrowser Browser { set; get; }
 
+        readonly static bool IsBrowserHeadless = Environment.GetEnvironmentVariable("TEST_CONDUIT_ENV") == "CI";
+
         [OneTimeSetUp]
         public void InitializeClientServices()
         {
@@ -25,7 +27,7 @@ namespace E2ETestCSharp.Tests.Fixtures
         {
             Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = false,
+                Headless = IsBrowserHeadless,
                 SlowMo = 50,
             });
             context = await Browser.NewContextAsync(new BrowserNewContextOptions { StorageState = await GetStateAsync() });
