@@ -32,6 +32,7 @@
 		<None Remove="Microsoft.Extensions.Configuration.Json" />
 		<None Remove="PlaywrightSetup\" />
 		<None Remove="Utils\Enums\" />
+		<None Remove="Tests\ConduitTests\NeedRefactoring\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Tests\" />
@@ -50,6 +51,7 @@
 		<Folder Include=".github\workflows\" />
 		<Folder Include="PlaywrightSetup\" />
 		<Folder Include="Utils\Enums\" />
+		<Folder Include="Tests\ConduitTests\NeedRefactoring\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include=".github\workflows\dotnet.yml" />
