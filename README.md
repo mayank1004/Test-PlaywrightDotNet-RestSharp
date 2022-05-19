@@ -42,6 +42,33 @@ Once you have .Net Core 3.1 installed, and cloned the repo, follow the below ins
 
 3. Run `dotnet test`
 
+Hints:
+To run `BadExamples` test on Headed browser, run the following command:
+
 ## IDE Setup:
+
+### Visual Studio
+- Please open the project `solution` file in VS
+- Once the project files and folder shows up, click on `Build` -> `Build All`
+- Now click on `View` -> `Tests` and it may display all the tests folder as below
+![Test Run Image](Images/TestsForReadME.png)
+- Right click on the Test or folder and select `Run test`
+
+**Hint**: To run the BadExample tests on headed browser, run following command:
+
+---
+
+Window:
+```
+set HEADED=1
+dotnet test --filter Name~Bad
+```
+---
+
+Linux & Mac
+```
+HEADED=1 dotnet test --filter Name~Bad
+```
+---
 
 

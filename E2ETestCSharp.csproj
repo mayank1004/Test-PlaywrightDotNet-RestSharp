@@ -33,6 +33,7 @@
 		<None Remove="PlaywrightSetup\" />
 		<None Remove="Utils\Enums\" />
 		<None Remove="Tests\ConduitTests\NeedRefactoring\" />
+		<None Remove="Images\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Tests\" />
@@ -52,6 +53,7 @@
 		<Folder Include="PlaywrightSetup\" />
 		<Folder Include="Utils\Enums\" />
 		<Folder Include="Tests\ConduitTests\NeedRefactoring\" />
+		<Folder Include="Images\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include=".github\workflows\dotnet.yml" />
