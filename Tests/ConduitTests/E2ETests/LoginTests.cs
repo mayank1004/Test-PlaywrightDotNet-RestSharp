@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 namespace E2ETestCSharp.Tests.E2ETests
 {
+    [Parallelizable(ParallelScope.Self)]
     public class LoginTests : TestFixture
     {
         [Test]
@@ -14,7 +15,7 @@ namespace E2ETestCSharp.Tests.E2ETests
             await signinPage.GoTo();
             await signinPage.SignIn("interview@start.com", "password");
             HomePage homePage = new HomePage(page);
-            await Expect(homePage._userProfileLink).ToBeVisibleAsync();
+            await Expect(homePage.UserProfileLink).ToBeVisibleAsync();
 
         }
     }

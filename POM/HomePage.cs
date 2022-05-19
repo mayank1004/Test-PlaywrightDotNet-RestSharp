@@ -7,16 +7,16 @@ namespace E2ETestCSharp.POM
         private readonly IPage _page;
         static readonly string pageUrl = "";
 
-        public readonly ILocator _userProfileLink;
-        public readonly ILocator _signInLink;
-        public readonly ILocator _newPostLink;
+        public readonly ILocator UserProfileLink;
+        public readonly ILocator SignInLink;
+        public readonly ILocator NewPostLink;
 
         public HomePage(IPage page) : base(page, pageUrl)
         {
             _page = page;
-            _userProfileLink = page.Locator(".user-pic");
-            _signInLink = page.Locator("[href='/login']");
-            _newPostLink = page.Locator(".ion-compose");
+            UserProfileLink = page.Locator(".user-pic");
+            SignInLink = page.Locator("[href='/login']");
+            NewPostLink = page.Locator(".ion-compose");
         }
     }
 }

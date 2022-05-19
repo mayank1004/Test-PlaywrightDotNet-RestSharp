@@ -7,6 +7,7 @@ using NUnit.Framework;
 namespace E2ETestCSharp.Tests.ConduitTests.E2ETests
 {
     [Description("User can create a new post and ...")]
+    [Parallelizable(ParallelScope.Self)]
     public class ConduitPostsTest : SignedInFixture
     {
 
@@ -15,7 +16,7 @@ namespace E2ETestCSharp.Tests.ConduitTests.E2ETests
         {
             HomePage homePage = new HomePage(page);
             await homePage.GoTo();
-            await Expect(homePage._newPostLink).ToBeVisibleAsync();
+            await Expect(homePage.NewPostLink).ToBeVisibleAsync();
         }
     }
 }

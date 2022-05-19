@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using E2ETestCSharp.Model.Auth;
 using E2ETestCSharp.Tests.Fixtures;
-using E2ETestCSharp.Utils.Config;
 using NUnit.Framework;
 
 namespace E2ETestCSharp.Tests.ConduitTests.APITests
 {
+    [Parallelizable(ParallelScope.Self)]
     public class AuthServiceTests : APIFixtures
     {
         [TestCase("interview@start.com", "password"), Description("Validate POST User Sign in API")]

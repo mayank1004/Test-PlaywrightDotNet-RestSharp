@@ -6,30 +6,30 @@ namespace E2ETestCSharp.POM
     public class SignInPage : BasePage
     {
         private readonly IPage _page;
-        private readonly ILocator _emailInput;
-        private readonly ILocator _passwordInput;
-        private readonly ILocator _signinButton;
+        public readonly ILocator EmailInput;
+        public readonly ILocator PasswordInput;
+        public readonly ILocator SignInButton;
         static readonly string pageUrl = "/login";
 
         public SignInPage(IPage page) : base(page, pageUrl)
         {
             _page = page;
-            _emailInput = page.Locator("[placeholder=\"Email\"]");
-            _passwordInput = page.Locator("[placeholder=\"Password\"]");
-            _signinButton = page.Locator("[type=\"submit\"]");
+            EmailInput = page.Locator("[placeholder=\"Email\"]");
+            PasswordInput = page.Locator("[placeholder=\"Password\"]");
+            SignInButton = page.Locator("[type=\"submit\"]");
         }
 
         public async Task SignIn(string email, string password)
         {
-            await _emailInput.FillAsync(email);
-            await _passwordInput.FillAsync(password);
-            await _signinButton.ClickAsync();
+            await EmailInput.FillAsync(email);
+            await PasswordInput.FillAsync(password);
+            await SignInButton.ClickAsync();
         }
 
         public override async Task GoTo()
         {
             await _page.GotoAsync(baseUrl);
-            await new HomePage(_page)._signInLink.ClickAsync();
+            await new HomePage(_page).SignInLink.ClickAsync();
         }
     }
 }
