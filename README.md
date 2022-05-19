@@ -1,7 +1,7 @@
 # Test Automation Project using .Net
 
 ## Status
-![Build](https://github.com/mayank1004/PlaywrightDotNet/actions/workflows/maven.yml/badge.svg)
+![Build](https://github.com/mayank1004/PlaywrightDotNet/actions/workflows/dotnet.yml/badge.svg)
 
 ---
 
@@ -15,6 +15,8 @@
 
 - This is skeleton work E2E Test automation project built using [Playwright for .Net](https://playwright.dev/dotnet/)
 - This also has skeleton work for the API testing using [RestSharp](https://restsharp.dev/)
+
+*Note*: Playwright does not support API testing on .Net with current version 1.22, [known issue](https://github.com/microsoft/playwright-dotnet/issues/1905) 
 
 ---
 [Test case folder](./Tests/ConduitTests)
