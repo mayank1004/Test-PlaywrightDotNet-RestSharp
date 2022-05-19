@@ -1,7 +1,7 @@
 # Test Automation Project using .Net
 
 ## Status
-![Build](https://github.com/mayank1004/https://github.com/mayank1004/Test-PlaywrightDotNet-RestSharp/actions/workflows/dotnet.yml/badge.svg)
+![Build](https://github.com/mayank1004/Test-PlaywrightDotNet-RestSharp/actions/workflows/dotnet.yml/badge.svg)
 
 ---
 
