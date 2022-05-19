@@ -37,6 +37,8 @@ namespace E2ETestCSharp.Services
 
         public Task<string> GetDefaultUserAuthToken() => GetUserAuthToken(IUserConfig.EMAIL, IUserConfig.TEST_PASSWORD);
 
+        public Task<UserManagement> CreateNewUser() => auth.CreateUserAsync();
+
         public async Task<User> GetCurrentUser(string username, string password)
         {
             string token = await auth.GetUserToken(username, password);

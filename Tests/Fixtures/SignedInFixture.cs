@@ -1,15 +1,20 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using E2ETestCSharp.Model.Auth;
+using E2ETestCSharp.Utils.Config;
 
 namespace E2ETestCSharp.Tests.Fixtures
 {
-    public class SignedInFixture : TestFixture
+    public class SignedInFixture : TestFixture, IConfig
     {
 
         public override async Task<string> GetStateAsync()
         {
-            string jwtToken = await ConduitClient.GetDefaultUserAuthToken();
+            UserManagement newUser = await ConduitClient.CreateNewUser();
+            Console.WriteLine($"New user email is: {newUser.user.email}");
+            string jwtToken = newUser.user.token;
 
-            return $"{{\"cookies\":[],\"origins\":[{{\"origin\":\"https://superlative-fox-61a6f8.netlify.app\",\"localStorage\":[{{\"name\":\"jwt\",\"value\":\"{jwtToken}\"}}]}}]}}";
+            return $"{{\"cookies\":[],\"origins\":[{{\"origin\":\"{IConfig.APP_BASE_URL}\",\"localStorage\":[{{\"name\":\"jwt\",\"value\":\"{jwtToken}\"}}]}}]}}";
 
         }
     }

@@ -2,13 +2,14 @@
 using System.Threading.Tasks;
 using E2ETestCSharp.Services;
 using E2ETestCSharp.Utils;
+using E2ETestCSharp.Utils.Config;
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 using NUnit.Framework;
 
 namespace E2ETestCSharp.Tests.Fixtures
 {
-    public class TestFixture : APIFixtures
+    public class TestFixture : APIFixtures, IConfig
     {
         protected IBrowser Browser { set; get; }
 
@@ -48,7 +49,7 @@ namespace E2ETestCSharp.Tests.Fixtures
         public virtual async Task<string> GetStateAsync()
         {
 
-            return $"{{\"cookies\":[],\"origins\":[{{\"origin\":\"https://superlative-fox-61a6f8.netlify.app\",\"localStorage\":[]}}]}}";
+            return $"{{\"cookies\":[],\"origins\":[{{\"origin\":\"{IConfig.APP_BASE_URL}\",\"localStorage\":[]}}]}}";
 
         }
     }
