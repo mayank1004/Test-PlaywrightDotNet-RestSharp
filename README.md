@@ -37,8 +37,8 @@ Once you have .Net Core 3.1 installed, and cloned the repo, follow the below ins
 - *NOTE: This command Installs required browsers - replace netcoreapp3.1 with actual output folder name, f.ex. net6.0. 
 - **If the pwsh command does not work (throws TypeNotFound), make sure to use an up-to-date version of PowerShell.*
 `dotnet tool update --global PowerShell`
-- **If you don't have powershell installed on mac os, please refer this [official page](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2#installation-of-latest-stable-release-via-homebrew-on-macos-1013-or-higher)
-- [Reference link](https://playwright.dev/dotnet/docs/intro#first-project)
+- **If you don't have powershell installed on mac os, please refer this [official page](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2#installation-of-latest-stable-release-via-homebrew-on-macos-1013-or-higher).
+- Other link for the [Reference](https://playwright.dev/dotnet/docs/intro#first-project)
 
 3. Run `dotnet test`
 
