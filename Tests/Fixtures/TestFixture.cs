@@ -15,12 +15,6 @@ namespace E2ETestCSharp.Tests.Fixtures
 
         readonly static bool IsBrowserHeadless = Environment.GetEnvironmentVariable("TEST_CONDUIT_ENV") == "CI";
 
-        [OneTimeSetUp]
-        public void InitializeClientServices()
-        {
-            ConduitClient = new ConduitClient();
-        }
-
         protected IPage page { set; get; }
         protected IBrowserContext context { set; get; }
 
@@ -37,13 +31,6 @@ namespace E2ETestCSharp.Tests.Fixtures
         {
             await context.CloseAsync();
             await Browser.CloseAsync();
-        }
-
-
-        [OneTimeTearDown]
-        public void CloseBrowser()
-        {
-            ConduitClient.Dispose();
         }
 
         public virtual async Task<string> GetStateAsync()
